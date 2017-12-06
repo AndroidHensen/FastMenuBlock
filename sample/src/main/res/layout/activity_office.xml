@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.handsome.fastmenublock.MainActivity">
+
+    <com.handsome.library.FastMenuBlock
+        android:id="@+id/fmb"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:fmb_gap="8dp"
+        app:fmb_icon_size="30dp"
+        app:fmb_title_size="14sp"
+        app:fmb_type="type_three" />
+
+</LinearLayout>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="FastMenuBlock">
+        <attr name="fmb_gap" format="dimension" />
+        <attr name="fmb_icon_size" format="dimension" />
+        <attr name="fmb_title_size" format="dimension" />
+        <attr name="fmb_type" format="enum">
+            <enum name="type_three" value="6" />
+            <enum name="type_four" value="8" />
+            <enum name="type_five" value="10" />
+        </attr>
+    </declare-styleable>
+</resources>
