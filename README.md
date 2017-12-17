@@ -29,7 +29,7 @@ Add the dependency
 
 ```
 dependencies {
-	compile 'com.github.AndroidHensen:FastMenuBlock:1.0'
+	compile 'com.github.AndroidHensen:FastMenuBlock:1.0.1'
 }
 ```
 
@@ -107,6 +107,9 @@ fmb.setAdapter(new FastMenuAdapter() {
 
 # Changelog
 
+* 1.0.1
+    * Change the package name
+    * Modify the minSdkVersion 14
 * 1.0
 	* Initial release
 	

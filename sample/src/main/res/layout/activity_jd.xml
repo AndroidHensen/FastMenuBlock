@@ -7,7 +7,7 @@
     android:orientation="vertical"
     tools:context="com.handsome.fastmenublock.MainActivity">
 
-    <com.handsome.library.FastMenuBlock
+    <com.handsome.menublock.FastMenuBlock
         android:id="@+id/fmb"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
