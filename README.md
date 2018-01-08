@@ -6,6 +6,13 @@ A simple, practical FastMenuBlock for Android.
 <img src="/preview/preview2.png" height="400px"></img>
 <img src="/preview/preview3.png" height="400px"></img>
 
+# Feature
+
+* 支持添加头部内容
+* 支持一行或两行的菜单
+* 支持三种不同数目的菜单
+* 支持本地资源或网络资源
+
 # Usage
 
 You can directly copy the layout file style using the sample project.
@@ -102,11 +109,22 @@ fmb.setAdapter(new FastMenuAdapter() {
 	public void onClick(int position) {
 		Toast.makeText(OfficeActivity.this, "position:" + position, Toast.LENGTH_SHORT).show();
 	}
+	
+	/**
+	 * Options:return your HeaderView
+	 */
+    @Override
+    public View getHeaderView() {
+        return LayoutInflater.from(OfficeActivity.this).inflate(R.layout.view_office_header, null);
+    }
 });
 ```
 
 # Changelog
 
+* 1.0.2
+    * Add attribute for fmb_line
+    * Add options method for FastMenuAdapter
 * 1.0.1
     * Change the package name
     * Modify the minSdkVersion 14

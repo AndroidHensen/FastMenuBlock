@@ -9,5 +9,9 @@
             <enum name="type_four" value="8" />
             <enum name="type_five" value="10" />
         </attr>
+        <attr name="fmb_line" format="enum">
+            <enum name="line_one" value="1" />
+            <enum name="line_two" value="2" />
+        </attr>
     </declare-styleable>
 </resources>

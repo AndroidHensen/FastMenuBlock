@@ -13,6 +13,7 @@
         android:layout_height="wrap_content"
         app:fmb_gap="8dp"
         app:fmb_icon_size="30dp"
+        app:fmb_line="line_one"
         app:fmb_title_size="14sp"
         app:fmb_type="type_three" />
 

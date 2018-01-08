@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#ffffff"
+    android:orientation="horizontal"
+    tools:context="com.handsome.fastmenublock.MainActivity">
+
+    <View
+        android:layout_width="10dp"
+        android:layout_height="20dp"
+        android:layout_gravity="center_vertical"
+        android:background="#019BFF" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:padding="12dp"
+        android:text="菜单列表"
+        android:textColor="#019BFF"
+        android:textSize="16sp" />
+</LinearLayout>

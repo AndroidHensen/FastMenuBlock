@@ -2,6 +2,8 @@ package com.handsome.fastmenublock;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.Toast;
 
 import com.handsome.menublock.FastMenuAdapter;
@@ -46,6 +48,7 @@ public class ELemeActivity extends AppCompatActivity {
             public void onClick(int position) {
                 Toast.makeText(ELemeActivity.this, "position:" + position, Toast.LENGTH_SHORT).show();
             }
+
         });
     }
 }

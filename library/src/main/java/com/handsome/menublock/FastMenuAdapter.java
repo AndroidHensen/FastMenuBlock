@@ -1,5 +1,7 @@
 package com.handsome.menublock;
 
+import android.view.View;
+
 /**
  * =====作者=====
  * 许英俊
@@ -16,4 +18,8 @@ public abstract class FastMenuAdapter {
     public abstract String getTitle(int position);
 
     public abstract void onClick(int position);
+
+    public View getHeaderView() {
+        return null;
+    }
 }

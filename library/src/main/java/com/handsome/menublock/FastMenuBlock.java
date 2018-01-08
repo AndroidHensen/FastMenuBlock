@@ -29,7 +29,7 @@ import java.util.concurrent.Executors;
  * 2017/12/6.
  */
 
-public class FastMenuBlock extends RelativeLayout implements View.OnClickListener {
+public class FastMenuBlock extends LinearLayout implements View.OnClickListener {
 
     private SparseArray<View> views;
     private View fmb_view;
@@ -62,15 +62,23 @@ public class FastMenuBlock extends RelativeLayout implements View.OnClickListene
     private List<ImageView> fmb_list_icon;
     private List<TextView> fmb_list_title;
 
-    private int fmb_type;
     private int fmb_title_size = 12;
     private int fmb_icon_size = 42;
     private int fmb_gap = 2;
+
+    private int fmb_type = TYPE.TYPE_THREE;
 
     interface TYPE {
         int TYPE_THREE = 6;
         int TYPE_FOUR = 8;
         int TYPE_FIVE = 10;
+    }
+
+    private int fmb_line = LINE.LINE_TWO;
+
+    interface LINE {
+        int LINE_ONE = 1;
+        int LINE_TWO = 2;
     }
 
     public FastMenuBlock(Context context) {
@@ -83,6 +91,8 @@ public class FastMenuBlock extends RelativeLayout implements View.OnClickListene
 
     public FastMenuBlock(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+
+        this.setOrientation(VERTICAL);
 
         mCachedThreadPool = Executors.newCachedThreadPool();
 
@@ -98,6 +108,7 @@ public class FastMenuBlock extends RelativeLayout implements View.OnClickListene
     private void initAttrs(Context context, AttributeSet attrs, int defStyleAttr) {
         TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.FastMenuBlock, defStyleAttr, 0);
         fmb_type = ta.getInt(R.styleable.FastMenuBlock_fmb_type, TYPE.TYPE_THREE);
+        fmb_line = ta.getInt(R.styleable.FastMenuBlock_fmb_line, LINE.LINE_TWO);
         fmb_title_size = (int) ta.getDimension(R.styleable.FastMenuBlock_fmb_title_size, dp2px(fmb_title_size));
         fmb_icon_size = (int) ta.getDimension(R.styleable.FastMenuBlock_fmb_icon_size, dp2px(fmb_icon_size));
         fmb_gap = (int) ta.getDimension(R.styleable.FastMenuBlock_fmb_gap, dp2px(fmb_gap));
@@ -107,6 +118,8 @@ public class FastMenuBlock extends RelativeLayout implements View.OnClickListene
     private void initRootViews(Context context) {
         views = new SparseArray<>();
         inflater = LayoutInflater.from(context);
+
+        // Type For FastMenuBlock
         if (fmb_type == TYPE.TYPE_THREE) {
             fmb_view = inflater.inflate(R.layout.fast_menu_block3, null);
         } else if (fmb_type == TYPE.TYPE_FOUR) {
@@ -114,6 +127,14 @@ public class FastMenuBlock extends RelativeLayout implements View.OnClickListene
         } else if (fmb_type == TYPE.TYPE_FIVE) {
             fmb_view = inflater.inflate(R.layout.fast_menu_block5, null);
         }
+
+        // Line For FastMenuBlock
+        if (fmb_line == LINE.LINE_ONE) {
+            fmb_view.findViewById(R.id.fmb_line_2).setVisibility(GONE);
+        } else if (fmb_line == LINE.LINE_TWO) {
+            fmb_view.findViewById(R.id.fmb_line_2).setVisibility(VISIBLE);
+        }
+
         addView(fmb_view);
     }
 
@@ -133,7 +154,14 @@ public class FastMenuBlock extends RelativeLayout implements View.OnClickListene
     public void setAdapter(FastMenuAdapter adapter) {
         this.mFastMenuAdapter = adapter;
 
+        setHeaderView();
         setFastMenuBlockView();
+    }
+
+    private void setHeaderView() {
+        if (mFastMenuAdapter.getHeaderView() != null) {
+            addView(mFastMenuAdapter.getHeaderView(), 0);
+        }
     }
 
     private void setFastMenuBlockView() {
@@ -151,7 +179,7 @@ public class FastMenuBlock extends RelativeLayout implements View.OnClickListene
                 }
 
                 fmb_list_title.get(i).setText(mFastMenuAdapter.getTitle(i));
-                fmb_list_title.get(i).setTextSize(TypedValue.COMPLEX_UNIT_PX,fmb_title_size);
+                fmb_list_title.get(i).setTextSize(TypedValue.COMPLEX_UNIT_PX, fmb_title_size);
                 fmb_list_title.get(i).setPadding(0, fmb_gap, 0, 0);
                 fmb_list_ly.get(i).setTag(i);
                 fmb_list_ly.get(i).setOnClickListener(this);
