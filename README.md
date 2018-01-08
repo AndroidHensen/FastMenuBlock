@@ -36,7 +36,7 @@ Add the dependency
 
 ```
 dependencies {
-	compile 'com.github.AndroidHensen:FastMenuBlock:1.0.1'
+	compile 'com.github.AndroidHensen:FastMenuBlock:1.0.2'
 }
 ```
 
