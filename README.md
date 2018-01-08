@@ -113,10 +113,10 @@ fmb.setAdapter(new FastMenuAdapter() {
 	/**
 	 * Options:return your HeaderView
 	 */
-    @Override
-    public View getHeaderView() {
-        return LayoutInflater.from(OfficeActivity.this).inflate(R.layout.view_office_header, null);
-    }
+	@Override
+	public View getHeaderView() {
+		return LayoutInflater.from(OfficeActivity.this).inflate(R.layout.view_office_header, null);
+	}
 });
 ```
 
