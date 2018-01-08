@@ -49,6 +49,7 @@ Add FastMenuBlock in your layout
 	android:id="@+id/fmb"
 	android:layout_width="match_parent"
 	android:layout_height="wrap_content"
+	app:fmb_line="line_one"               // default line_two
 	app:fmb_gap="2dp"                     // default 2dp
 	app:fmb_icon_size="42dp"              // default 42dp
 	app:fmb_title_size="14sp"             // default 14sp
